@@ -105,7 +105,62 @@ header .container {
     color: var(--marigold); /* Marigold for mobile button */
     cursor: pointer;
     display: none; /* Mobile menu button (hidden by default) */
+}/* Default Desktop Navigation */
+#main-nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
 }
+
+/* Mobile Menu Button (Hidden on Desktop) */
+#mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--marigold);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Show Mobile Menu Button */
+    #mobile-menu-button {
+        display: block;
+    }
+
+    /* Hide Navigation by Default */
+    #main-nav {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--dark-void);
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    /* Show Navigation When Active */
+    #main-nav.active {
+        display: block;
+    }
+
+    /* Stack Links Vertically on Mobile */
+    #main-nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+
+
+
+
+
+
 
 /* Media Query for Mobile */
 @media (max-width: 768px) {
