@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-button');
+    const mainNav = document.getElementById('main-nav');
+
+    // Toggle Menu on Button Click
+    if (mobileMenuBtn && mainNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            
+            // Change ☰ to ✕ when menu is open
+            this.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close Menu When a Link is Clicked
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+    }
+});
+
+
+                         
+
+
+document.addEventListener('DOMContentLoaded', function() {
     // Initialize theme from localStorage or prefer-color-scheme
     initTheme();
     
